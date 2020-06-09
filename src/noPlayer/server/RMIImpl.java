@@ -28,10 +28,16 @@ public class RMIImpl implements ClientInterface {
     }
 
     public void addAlbum(String name, String url, Artist artist, int date, Genre genre) {
+        try {
+            serverController.getSqlDriver().addAlbumQuery(name, url, artist, date, genre);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void addTrack(Album album, int length, String name, int pos) {
+    public void addTrack(Album album, int length, String name, int pos) throws SQLException {
+        serverController.getSqlDriver().addTrack(album, length, name, pos);
 
     }
 
@@ -39,6 +45,12 @@ public class RMIImpl implements ClientInterface {
         serverController.getSqlDriver().addGenre(name);
 
     }
+
+    @Override
+    public void modifyAlbum(int albumid, int artistid, int genreid, int releasedate, String Pictureurl,String name) throws Exception {
+        serverController.getSqlDriver().ModifyAlbumData(albumid, artistid, genreid, releasedate, Pictureurl,name);
+    }
+
     public List<Album> getArtistAlbums(Artist artist) throws SQLException {
         return serverController.getSqlDriver().getArtistAlbums(artist);
 
@@ -56,5 +68,7 @@ public class RMIImpl implements ClientInterface {
     public List<Track> getAlbumTracks(Album album) throws SQLException {
         return serverController.getSqlDriver().getAlbumTracks(album);
     }
+
+
 
 }

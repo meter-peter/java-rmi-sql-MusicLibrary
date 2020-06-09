@@ -61,8 +61,6 @@ public class Track implements Serializable {
 
     @Override
     public String toString() {
-
-
-        return getNumber()+"-"+getName()+"-"+TimeUnit.SECONDS.toMinutes(getTime());
+        return getNumber()+"-"+getName()+"-"+TimeUnit.SECONDS.toMinutes(getTime())+" mins";
     }
 }

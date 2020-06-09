@@ -42,6 +42,9 @@ public class EditorController {
 
     }
 
+    public void modifyAlbum(int albumid,int artistid ,int genreid ,int releasedate, String Pictureurl, String name) throws Exception {
+        rmi.modifyAlbum(albumid, artistid, genreid, releasedate, Pictureurl,name);
+    }
 
     public List<Album> getAlbums(Artist artist) throws Exception {
         return rmi.getAristsAlbums(artist);

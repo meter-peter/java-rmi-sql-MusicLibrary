@@ -27,6 +27,20 @@ public class DataEditorGUI extends JFrame {
         actions.add(addArtistButton);
         actions.add(addgenre);
         actions.add(addAlbumButton);
+        Button gotoedit = new Button("Go to Editor");
+        actions.add(gotoedit);
+
+        gotoedit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    new DataPicker(editorController);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 
         setVisible(true);
         pack();

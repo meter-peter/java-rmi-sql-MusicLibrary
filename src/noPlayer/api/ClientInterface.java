@@ -15,6 +15,7 @@ public interface ClientInterface extends Remote {
     public List<Track> getAlbumTracks(Album album) throws Exception;
     public Album getAlbumbyname(String name) throws Exception;
     public void addGenre(String name) throws Exception;
+    public void modifyAlbum(int albumid,int artistid ,int genreid ,int releasedate,String Pictureurl ,String name) throws  Exception;
     }
 
 

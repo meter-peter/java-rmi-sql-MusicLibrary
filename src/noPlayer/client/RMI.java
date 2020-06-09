@@ -61,6 +61,9 @@ public class RMI {
 
     }
 
+    public void modifyAlbum(int albumid,int artistid ,int genreid ,int releasedate, String Pictureurl,String name) throws Exception {
+        stub.modifyAlbum(albumid, artistid, genreid, releasedate, Pictureurl,name);
+    }
 
     public void addGenre(String name) throws Exception {
         stub.addGenre(name);

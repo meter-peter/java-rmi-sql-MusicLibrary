@@ -241,6 +241,20 @@ public class SQLDriver {
 
         }
          return null;
+    }
+
+    public void ModifyAlbumData(int albumid,int artistid ,int genreid ,int releasedate, String Pictureurl , String name) throws SQLException {
+        Connection connection = connectionpool.getConnection();
+        PreparedStatement statement = connection.prepareStatement("UPDATE Album SET ArtistID = ? ,GenreID = ?, ReleaseDate = ?,Name = ? ,PictureUrl = ? WHERE AlbumID=?;");
+        statement.setInt(1,artistid);
+        statement.setInt(2,genreid);
+        statement.setInt(3,releasedate);
+        statement.setString(4,name);
+        statement.setString(5,Pictureurl);
+        statement.setInt(6,albumid);
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
 
 
 
@@ -249,7 +263,7 @@ public class SQLDriver {
     public Album getAlbumbyName(String name) throws SQLException {
         Connection connection = connectionpool.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet records = statement.executeQuery("SELECT * from Album WHERE Name="+name);
+        ResultSet records = statement.executeQuery("SELECT * from Album WHERE Name="+"'"+name+"'");
         Album album = new Album(records.getInt(1),getArtistObjectById(records.getInt(2)),getGenreObjectfromId(records.getInt(3)),records.getInt(4),records.getString(5),records.getString(5));
         records.close();
         connection.close();
