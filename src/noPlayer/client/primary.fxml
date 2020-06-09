@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="602.0" prefWidth="600.0" style="-fx-background-color: #999999;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <ListView fx:id="artists" layoutX="23.0" layoutY="21.0" nodeOrientation="LEFT_TO_RIGHT" orientation="HORIZONTAL" prefHeight="44.0" prefWidth="563.0" style="-fx-background-color: #E2F0CB;" />
+      <AnchorPane layoutX="163.0" layoutY="80.0" prefHeight="489.0" prefWidth="416.0" style="-fx-background-color: b5ead7;">
+         <children>
+            <ImageView fx:id="artistImage" fitHeight="102.0" fitWidth="111.0" layoutX="31.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="artistLabel" layoutX="178.0" layoutY="43.0" prefHeight="44.0" prefWidth="155.0">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="34.0" />
+               </font>
+            </Label>
+            <ListView fx:id="artistAlbums" layoutY="124.0" prefHeight="367.0" prefWidth="419.0" />
+         </children>
+      </AnchorPane>
+    </children>
+
+</AnchorPane>
